@@ -7,18 +7,18 @@ import { CreateNutritionService } from "../services/CreateNutritinService";
     height: string;
     age: string;
     gender: string
-    objectve: string
+    objective: string
     level: string
 }
 
 class CreateNutritionController {
     async handle(request: FastifyRequest, refly: FastifyReply) {
-        const { name, weight, height, age, gender, objectve, level } = request.body as DataProps;
+        const { name, weight, height, age, gender, objective, level } = request.body as DataProps;
 
         const createNutrition = new CreateNutritionService();
 
         const nutrition = await createNutrition.execute({
-            name, weight, height, age, gender, objectve, level
+            name, weight, height, age, gender, objective, level
         });
 
         refly.send(nutrition);
